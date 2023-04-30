@@ -1,0 +1,10 @@
+.lgn{
+    min-height: 100vh;
+    color: white;
+    background-color: rgba(41, 32, 32, 0.438);
+    /* margin: 30px 60px; */
+    /* width: 50%; */
+    width: 90%;
+    margin:70px auto;
+    border-radius: 10px;
+}

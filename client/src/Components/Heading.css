@@ -1,0 +1,33 @@
+.head{
+    background-color: #dc3545;
+  
+  
+}
+.container{
+    display: flex;
+    /* flex-direction: row; */
+    flex-flow: row wrap;
+    /* max-width: 1240px; */
+    align-items: center;
+    justify-content:center;
+   
+
+}
+
+.cont{
+    margin: auto 4rem;
+    padding-top:10px;
+    font-size: smaller;
+   /* font-weight: bold; */
+   color: white;
+   cursor: pointer;
+   text-decoration: solid black;
+ 
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+.cont:hover{
+    font-weight: bold;
+}

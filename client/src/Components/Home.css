@@ -1,0 +1,69 @@
+.fl{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+}
+
+
+.cf{
+    margin: 10.5rem auto;
+    border-radius: 7px;
+ 
+}
+
+
+
+#fc:hover{
+    /* transform: rotateZ(2deg); */
+}
+.card-img-top{
+    width: auto;
+    height: 200px;
+    /* object-fit:cover; */
+}
+
+
+
+.card-img-top:hover{
+    /* transform: rotateZ(2deg); */
+    scale: 1.03;
+}
+
+
+#fc{
+    position: absolute;
+    top: 90px;
+    color: azure;
+   
+    
+}
+
+@media only screen and (max-width: 1200px) {
+   #fc{
+   margin-top: 40px;
+  
+  }
+  }
+
+  @media only screen and (max-width: 768px) {
+    #fc{
+    margin-top: 103px;
+   
+   }
+   }
+
+
+  @media only screen and (max-width: 546px) {
+   #fc{
+    margin-top: 95px;
+   }
+  }
+  @media only screen and (max-width: 360px) {
+   #fc{
+    margin-top: 140px;
+   }
+  }
+
