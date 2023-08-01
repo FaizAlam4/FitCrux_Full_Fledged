@@ -1,8 +1,8 @@
 import './Exercise.css';
-import React, {  useState } from 'react'
+import React, {  useState,useEffect } from 'react'
 import {exeroptions, fetchData } from './utils/fetchData';
 import Comps from './Comps';
-
+import {useNavigate} from 'react-router-dom'
 
 
 function createComp(nfinal){
@@ -11,6 +11,40 @@ return <div className='cds'><Comps key={nfinal.id} name={nfinal.name} imsrc={nfi
 
 
 function Exercise() {
+
+  const navigate=useNavigate();
+
+  useEffect(()=>{
+      //cannt use async inside useeffect but can use promises
+      myfuncAbout();
+          },[])
+
+  
+  const myfuncAbout=async()=>{
+try{
+  const res=await fetch('/exercise', {
+      method:"GET",
+      headers:{Accept:"application/json",
+  "Content-Type":"application/json",
+  },
+  credentials:"include"
+  });
+  const data=await res.json();
+  console.log(data);
+  if(!res.status===200){
+      const error=new Error(res.error);
+      throw error;
+  }
+
+}
+catch(err){
+console.log(err);
+navigate('/login');
+
+}
+  }
+
+
     const [search,setSearch]=useState('');
     const [ans,setAns]=useState(true);
     const [nfinal,setNfinal]=useState([]);

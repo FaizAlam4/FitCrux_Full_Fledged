@@ -8,7 +8,6 @@ import Exercise from './Exercise';
 import Login from './Login';
 
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
@@ -16,7 +15,7 @@ import {
 
 function App() {
   return (
-    <Router>
+   
     <div className="App">
       <Heading />
       
@@ -32,7 +31,7 @@ function App() {
    
       <Footer />
     </div>
-    </Router>
+    
   );
 }
 

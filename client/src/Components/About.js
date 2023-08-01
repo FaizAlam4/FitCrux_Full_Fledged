@@ -1,8 +1,42 @@
 import React from 'react';
 import './About.css';
 import Abtlogo from '../assets/abtpic12.png'
+import {useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 function About(){
+    const navigate=useNavigate();
+
+    useEffect(()=>{
+        //cannt use async inside useeffect but can use promises
+        myfuncAbout();
+            },[])
+
+    
+    const myfuncAbout=async()=>{
+try{
+    const res=await fetch('/about', {
+        method:"GET",
+        headers:{Accept:"application/json",
+    "Content-Type":"application/json",
+    },
+    credentials:"include"
+    });
+    const data=await res.json();
+    console.log(data);
+    if(!res.status===200){
+        const error=new Error(res.error);
+        throw error;
+    }
+  
+}
+catch(err){
+console.log(err);
+navigate('/login');
+
+}
+    }
+
 
 return <div className='ac' id="abt"> 
  <div id='ac1'  style={{border:"none"}}> <img id='abtimg' src={Abtlogo} alt="" /></div>  

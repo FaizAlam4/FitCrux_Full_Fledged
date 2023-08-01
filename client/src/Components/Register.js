@@ -1,13 +1,13 @@
 import React from "react";
 import './Register.css';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,Link} from 'react-router-dom';
 // import Login from "./Login";
 // import { Link } from 'react-router-dom';
 import { useState } from "react";
 
 
 function Register(){
-const history=useNavigate();
+const navigate=useNavigate();
 const [user,setUser]=useState(
   {
     nm:"",em:"", pw:"", gender:""
@@ -27,26 +27,31 @@ console.log(user);
 
 const Postdata=async(e)=>{
   e.preventDefault();
-  const {name,email,password,gender}=user;
-  const res=await fetch("/register",{method:"POST",headers:{
+  const {nm,em,pw,gender}=user;
+  console.log(user);
+  const res=await fetch("/register",{
+    method:"POST",
+    headers:{
     "Content-Type":"application/json"
   },
-  body: JSON.stringify({name,email,password,gender})
+  body: JSON.stringify({nm,em,pw,gender})
 
 });
+console.log(res);
 const data=await res.json();
-if(data.status===422||!data){
+// console.log(data);
+if(res.status===422||!data){
   window.alert("Invalid Registration");
   console.log("Invalid");
 }
 else{
   window.alert(" Registration Successful");
-  history.push('/login');
+  navigate('/login');
 }
 }
 
     return <div className="contss">
-      <span id="ng"> Already Registered? <small style={{backgroundColor:"red"}}>Go to login !! </small></span>
+      <span id="ng"> Already Registered? <Link to="/login" style={{backgroundColor:"red",fontSize:"smaller"}}>Go to login !! </Link></span>
 
       <form method="POST"> <fieldset> <legend id="lg" style={{ paddingTop: "12px" }}>  Join Our Community</legend> <hr />
 
@@ -68,7 +73,7 @@ else{
           <input onChange={handleInp} type="radio" value="other" name="gender" id="oth" />
         </div>
         <br />
-        <button className="cd-size" style={{ minWidth: "30vh", minHeight: "7vh" }} onSubmit={Postdata}>Let's Go</button>
+        <button className="cd-size" style={{ minWidth: "30vh", minHeight: "7vh" }} onClick={Postdata}>Let's Go</button>
       </fieldset></form>
     </div>
 }

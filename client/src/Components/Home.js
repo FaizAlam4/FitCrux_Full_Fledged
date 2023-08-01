@@ -1,5 +1,7 @@
 import './Home.css';
 import exercise from '../assets/exer.jpg';
+import {useNavigate} from 'react-router-dom'
+import {useEffect} from 'react'
 import diet from '../assets/diet.jpg';
 import life from '../assets/lifestyle.jpg';
 import { faDumbbell } from '@fortawesome/free-solid-svg-icons';
@@ -27,6 +29,38 @@ function Card(props) {
 }
 
 function Home() {
+
+  const navigate=useNavigate();
+
+  useEffect(()=>{
+      //cannt use async inside useeffect but can use promises
+      myfuncAbout();
+          },[])
+
+  
+  const myfuncAbout=async()=>{
+try{
+  const res=await fetch('/home', {
+      method:"GET",
+      headers:{Accept:"application/json",
+  "Content-Type":"application/json",
+  },
+  credentials:"include"
+  });
+  const data=await res.json();
+  console.log(data);
+  if(!res.status===200){
+      const error=new Error(res.error);
+      throw error;
+  }
+
+}
+catch(err){
+console.log(err);
+navigate('/login');
+
+}
+  }
 
 
   var str1 = "Home or gym, don't compromise with health";

@@ -1,10 +1,13 @@
 const express=require('express');
 const router=express.Router();
-const jwt=require('jsonwebtoken');
+// const jwt=require('jsonwebtoken');
 const bcrypt=require('bcrypt');
 // router.use(bodyParser.urlencoded({extended:true}));
+const authenticate=require("../middleware/authenticate")
 require('../db/conn');
-router.use(express.json());
+
+router.use(express.json()); //it instructs the router to automatically parse any incoming request with a JSON payload and make the parsed data available in req.body. This allows you to access the JSON data sent in the request body in a structured manner.
+
 const User=require('../models/userScheme.js')
 
 
@@ -13,30 +16,35 @@ res.send("hello from server")
 });
 
 router.post('/register', (req,res)=>{
-    const {name,email,password,gender}=req.body;
-    // console.log(req.body);
+    const {nm,em,pw,gender}=req.body;
+    console.log(req.body);
 
   
-    if(!name||!email||!password||!gender){
+    if(!nm||!em||!pw||!gender){
         return res.status(422).json({error:"Please fill the form completely"})
     }
     //  res.json({message:req.body})  creates problem as we cann't send multiple responses
-     console.log(name);
+    //  console.log(name);
     
 
-     User.findOne({email:email}).then((exist)=>{
+     User.findOne({email:em}).then((exist)=>{
          if(exist){
+        
  return res.status(422).json({error:"Email already exists!"});
         }
-         const us=new User({ name:name,email:email,password:password,gender:gender })
+         const us=new User({ name:nm,email:em,password:pw,gender:gender })
         //  const user=new User(req.body)
       
 console.log("My entered user is:",us);
 
         us.save().then(()=>{
            return res.status(201).json({message:"User registered successfully!"});
-        }).catch(()=> res.status(500).json({error:"Failed to register !"}));
-    }).catch(err=>{console.log(err);})
+        }).catch(()=>{ 
+
+            res.status(500).json({error:"Failed to register !"})});
+    }).catch(err=>{
+      
+        console.log(err);})
 
 
 })
@@ -45,13 +53,16 @@ console.log("My entered user is:",us);
  router.post('/login',async(req,res)=>{
  try{
     let token;
- const {email,password}=req.body;
- if(!email||!password){
+ const {em,pw}=req.body;
+ console.log(req.body);
+
+ if(!em||!pw){
      return res.status(400).json({error:"Invalid"})
  }
- const userLogin=await User.findOne({email:email})
+
+ const userLogin=await User.findOne({email:em})
  if(userLogin){
-     const isMatch=await bcrypt.compare(password,userLogin.password);
+     const isMatch=await bcrypt.compare(pw,userLogin.password);
 
      if(isMatch ){
          token= await userLogin.generateAuthToken();
@@ -64,16 +75,27 @@ console.log("My entered user is:",us);
     return res.json({message:"User signin successfully!"}) 
      }
      else{
-       return  res.status(400).json({error:"Invalid Credentials"})
+       return  res.status(400).json({error:"Invalid password"})
      }
  }
  else{
-     return res.status(400).json({error:"User might exist already!"})
+     return res.status(400).json({error:"User doesn't exist, register first!"})
  
  }}
  catch(err){
  console.log(err);
  }
+ })
+
+
+ router.get('/about',authenticate,(req,res)=>{
+res.send(req.rootUser);
+ })
+ router.get('/home',authenticate,(req,res)=>{
+res.send(req.rootUser);
+ })
+ router.get('/exercise',authenticate,(req,res)=>{
+res.send(req.rootUser);
  })
 
 module.exports=router;
