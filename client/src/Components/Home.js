@@ -35,7 +35,7 @@ function Home() {
   useEffect(() => {
 
     myfuncAbout();
-  }, [])
+  }, []);
 
 
   const myfuncAbout = async () => {
@@ -49,8 +49,9 @@ function Home() {
         credentials: "include"
       });
       const data = await res.json();
+      console.log(data)
 
-      if (!res.status === 200) {
+      if (res.status !== 200) {
         const error = new Error(res.error);
         throw error;
       }
@@ -71,14 +72,14 @@ function Home() {
   var pat2 = diet;
   var pat3 = life;
 
-  return <div className='fl'>
+  return (<div className='fl'>
    
     <h1 id='fc' style={{ fontWeight: "bold", width: "50%", }}><FontAwesomeIcon id="fi" icon={element} /> &nbsp; <span><div style={{ display: "inline", backgroundColor: "#dc3545", borderRadius: "5rem", padding: "5px" }}>Fit</div>Crux</span> </h1>
     <div className='cf'> <Card name="Exercise" content={str1} site={pat1} ico={ex} /></div>
     <div className='cf'> <Card name="Diet" content={str2} site={pat2} ico={ex1} /></div>
     <div className='cf'> <Card name="Lifestyle" content={str3} site={pat3} ico={ex2} /></div>
 
-  </div>
+  </div>)
 
 }
 
