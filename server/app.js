@@ -11,7 +11,7 @@ dotenv.config({path:'./config.env'})
 
 require('./db/conn.js')
 const corsOptions = {
-    origin: 'http://localhost:3000', // Replace this with the allowed origin(s)
+    origin: 'http://localhost:3000', 
   };
 app.use(cors(corsOptions));
 //linked router files
