@@ -26,9 +26,9 @@ const authenticate = async (req, res, next) => {
     }
     catch (err) {
         console.log(err);
-        res.status(401).send("Unauthorised!")
+        res.status(401).json({error:"Unauthorised!"})
     }
-    next();
+    
 }
 
 module.exports = authenticate;
