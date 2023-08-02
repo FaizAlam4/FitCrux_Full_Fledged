@@ -14,7 +14,7 @@ const port=process.env.PORT||4000;
 
 require('./db/conn.js')
 const corsOptions = {
-    origin:[ 'http://localhost:3000', "https://faiz-fitcrux-frontend.onrender.com"]
+    origin:[ 'http://localhost:3000', "https://courageous-elf-95e02a.netlify.app/"]
   };
 app.use(cors(corsOptions));
 //linked router files
