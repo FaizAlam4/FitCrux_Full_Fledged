@@ -21,16 +21,22 @@ app.use(cors(corsOptions));
 
 require('./db/conn.js')
 //linked router files
+
 app.use(require('./router/auth'));
 
 app.use(express.static(path.join(__dirname,"../client/build")));
 app.get("*",(_,res)=>{
 res.sendFile(
   path.join(__dirname,"../client/build/index.html"),(err)=>{
-res.status(500).send(err);
+    if(err){
+
+      res.status(500).send(err);
+    }
   }
 )
 })
+
+
 
 
 
