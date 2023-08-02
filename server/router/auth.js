@@ -94,11 +94,18 @@ router.post('/login', async (req, res) => {
 router.get('/about', authenticate, (req, res) => {
     res.send(req.rootUser);
 })
+
 router.get('/home', authenticate, (req, res) => {
     res.send(req.rootUser);
 })
+
 router.get('/exercise', authenticate, (req, res) => {
     res.send(req.rootUser);
+})
+
+router.get('/logout', (req, res) => {
+    res.clearCookie('jwtoken',{path:'/'});
+    res.status(200).json({message:"Logged out"});
 })
 
 module.exports = router;

@@ -1,6 +1,6 @@
 import './Home.css';
 import exercise from '../assets/exer.jpg';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import diet from '../assets/diet.jpg';
 import life from '../assets/lifestyle.jpg';
@@ -23,7 +23,7 @@ function Card(props) {
     <div className="card-body">
       <FontAwesomeIcon icon={props.ico} /> <h5 id="fg" className="card-title">{props.name}</h5>
       <p className="card-text">{props.content}</p>
-      <a href="/" className="btn btn-danger">Show me</a>
+      <Link to="/exercise" className="btn btn-danger">Show me</Link>
     </div>
   </div>
 }
@@ -72,14 +72,17 @@ function Home() {
   var pat2 = diet;
   var pat3 = life;
 
-  return (<div className='fl'>
+  return (
+
+  <div className='fl'>
    
     <h1 id='fc' style={{ fontWeight: "bold", width: "50%", }}><FontAwesomeIcon id="fi" icon={element} /> &nbsp; <span><div style={{ display: "inline", backgroundColor: "#dc3545", borderRadius: "5rem", padding: "5px" }}>Fit</div>Crux</span> </h1>
     <div className='cf'> <Card name="Exercise" content={str1} site={pat1} ico={ex} /></div>
     <div className='cf'> <Card name="Diet" content={str2} site={pat2} ico={ex1} /></div>
     <div className='cf'> <Card name="Lifestyle" content={str3} site={pat3} ico={ex2} /></div>
 
-  </div>)
+  </div>
+  )
 
 }
 

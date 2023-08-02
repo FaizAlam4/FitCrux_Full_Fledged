@@ -6,6 +6,7 @@ import About from './About';
 import Register from './Register';
 import Exercise from './Exercise';
 import Login from './Login';
+import Logout from './Logout';
 
 import {
   Routes,
@@ -26,6 +27,7 @@ function App() {
           <Route path="/register" element={<Register/>} />
           <Route path="/exercise" element={<Exercise/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/logout" element={<Logout/>} />
          
         </Routes>
    

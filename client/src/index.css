@@ -72,3 +72,10 @@ border-radius: 4px;
 
 }
 }
+
+@media only screen and (max-width: 359.5px) {
+  header{
+  height: 12rem;
+
+}
+}

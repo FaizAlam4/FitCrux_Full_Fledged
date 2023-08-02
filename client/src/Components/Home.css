@@ -1,26 +1,25 @@
 .fl{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     align-items: center;
     justify-content: center;
 
     min-height: 100vh;
+
 }
 
 
 .cf{
     margin: 10.5rem auto;
     border-radius: 7px;
- 
 }
-
 
 
 #fc:hover{
     /* transform: rotateZ(2deg); */
 }
 .card-img-top{
-    width: auto;
+    min-width: auto;
     height: 200px;
     /* object-fit:cover; */
 }

@@ -8,7 +8,6 @@ function About() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        //cannt use async inside useeffect but can use promises
         myfuncAbout();
     }, [])
 

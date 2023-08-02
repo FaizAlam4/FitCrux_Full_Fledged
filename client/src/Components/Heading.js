@@ -15,6 +15,7 @@ function Heading() {
             <div className="cont"> <Link to="/exercise">Exercises</Link> </div>
             <div className="cont" > <Link to="/register" >Register</Link></div>
             <div className="cont" > <Link to="/login" >Login</Link></div>
+            <div className="cont" > <Link to="/logout" >Logout</Link></div>
         </div>
     </header>
 }
