@@ -11,6 +11,7 @@ app.use(cookieParser());
 dotenv.config({path:'./config.env'})
 
 const port=process.env.PORT||4000;
+
 require('./db/conn.js')
 const corsOptions = {
     origin:[ 'http://localhost:3000', "https://faiz-fitcrux-frontend.onrender.com"]
