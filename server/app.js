@@ -12,11 +12,14 @@ dotenv.config({path:'./config.env'})
 
 const port=process.env.PORT||4000;
 
-require('./db/conn.js')
+
 const corsOptions = {
-    origin:[ 'http://localhost:3000', "https://courageous-elf-95e02a.netlify.app/"]
+    origin:[ 'http://localhost:3000/', "https://faiz-fitcrux-frontend.onrender.com"]
   };
+
 app.use(cors(corsOptions));
+
+require('./db/conn.js')
 //linked router files
 app.use(require('./router/auth'));
 

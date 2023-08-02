@@ -58,7 +58,7 @@ function Home() {
 
     }
     catch (err) {
-      console.log(err);
+      console.log("error",err);
       navigate('/register');
 
     }
