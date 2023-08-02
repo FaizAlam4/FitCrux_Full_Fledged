@@ -11,12 +11,12 @@ dotenv.config({path:'./config.env'})
 
 require('./db/conn.js')
 const corsOptions = {
-    origin: 'http://localhost:3000', 
+    origin:[ 'http://localhost:3000', "https://faiz-fitcrux-frontend.onrender.com"]
   };
 app.use(cors(corsOptions));
 //linked router files
 app.use(require('./router/auth'));
-const port=process.env.PORT;
+const port=process.env.PORT||4000;
 
 
 
