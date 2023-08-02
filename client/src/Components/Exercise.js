@@ -21,7 +21,7 @@ function Exercise() {
 
   const myfuncAbout = async () => {
     try {
-      const res = await fetch('/exercise', {
+      const res = await fetch('https://faiz-fitcrux.onrender.com/exercise', {
         method: "GET",
         headers: {
           Accept: "application/json",

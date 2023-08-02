@@ -11,7 +11,7 @@ function Logout() {
 
     const myfuncAbout = async () => {
         try {
-            const res = await fetch('/logout', {
+            const res = await fetch('https://faiz-fitcrux.onrender.com/logout', {
                 method: "GET",
                 headers: {
                     Accept: "application/json",

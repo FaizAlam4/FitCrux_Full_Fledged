@@ -14,7 +14,7 @@ function About() {
 
     const myfuncAbout = async () => {
         try {
-            const res = await fetch('/about', {
+            const res = await fetch('https://faiz-fitcrux.onrender.com/about', {
                 method: "GET",
                 headers: {
                     Accept: "application/json",

@@ -29,7 +29,7 @@ const Postdata=async(e)=>{
   e.preventDefault();
   const {nm,em,pw,gender}=user;
   console.log(user);
-  const res=await fetch("/register",{
+  const res=await fetch("https://faiz-fitcrux.onrender.com/register",{
     method:"POST",
     headers:{
     "Content-Type":"application/json"
