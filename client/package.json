@@ -1,9 +1,8 @@
 {
   "name": "mypro",
   "version": "0.1.0",
-  "proxy":"https://faiz-fitcrux.onrender.com/",
   "private": true,
-  "homepage": "http://FaizAlam4.github.io/FitCrux-The-React-App",
+  "homepage": "",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",

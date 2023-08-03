@@ -13,33 +13,25 @@ dotenv.config({path:'./config.env'})
 const port=process.env.PORT||4000;
 
 
-const corsOptions = {
-    origin:[ 'http://localhost:3000/', "https://faiz-fitcrux-frontend.onrender.com"]
-  };
+// const corsOptions = {
+//     origin:[ 'http://localhost:3000/', "https://faiz-fitcrux-frontend.onrender.com"]
+//   };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 require('./db/conn.js')
 //linked router files
 
+
 app.use(require('./router/auth'));
 
-app.use(express.static(path.join(__dirname,"../client/build")));
-app.get("*",(_,res)=>{
-res.sendFile(
-  path.join(__dirname,"../client/build/index.html"),(err)=>{
-    if(err){
+//serves frontend
+app.use(express.static(path.join(__dirname,'./public')));
 
-      res.status(500).send(err);
-    }
-  }
-)
+app.get("*",(req,res)=>{
+res.sendFile(path.join(__dirname,'./public/index.html'))
+
 })
 
 
-
-
-
-
-
-app.listen(port,()=>{console.log(`Listening to ${port}`)})
+app.listen(port,()=>{console.log(`Listening to ${port}`)});

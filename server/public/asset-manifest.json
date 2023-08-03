@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9982dd27.css",
+    "main.js": "/static/js/main.2c352ac5.js",
+    "static/js/787.a676f994.chunk.js": "/static/js/787.a676f994.chunk.js",
+    "static/media/lifestyle.jpg": "/static/media/lifestyle.cbb98853598edf130699.jpg",
+    "static/media/exer.jpg": "/static/media/exer.2061d334672b9ab40744.jpg",
+    "static/media/diet.jpg": "/static/media/diet.a9911064735ffa42d3f8.jpg",
+    "static/media/gyms1.jpg": "/static/media/gyms1.ebb95d3eb36f12291643.jpg",
+    "static/media/abtpic12.png": "/static/media/abtpic12.3f84232aad21b1482c59.png",
+    "index.html": "/index.html",
+    "main.9982dd27.css.map": "/static/css/main.9982dd27.css.map",
+    "main.2c352ac5.js.map": "/static/js/main.2c352ac5.js.map",
+    "787.a676f994.chunk.js.map": "/static/js/787.a676f994.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9982dd27.css",
+    "static/js/main.2c352ac5.js"
+  ]
+}
