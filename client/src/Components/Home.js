@@ -40,7 +40,7 @@ function Home() {
 
   const myfuncAbout = async () => {
     try {
-      const res = await fetch('/home', {
+      const res = await fetch('http://localhost:4000/home', {
         method: "GET",
         headers: {
           Accept: "application/json",
