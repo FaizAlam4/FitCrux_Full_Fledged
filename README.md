@@ -29,5 +29,6 @@ Keyword which you can enter for example:
 3. go to browser at http//:localhost:4000
 ```
 
+### Frontend prototype is hosted on github pages-> https://faizalam4.github.io/FitCrux-The-React-App/
 
 *Endpoints: It will show unauthorised if you try to login any existing endpoint without login and will show not found if try to access non existing end point*
