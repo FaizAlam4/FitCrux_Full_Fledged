@@ -40,7 +40,7 @@ function Home() {
 
   const myfuncAbout = async () => {
     try {
-      const res = await fetch('http://localhost:4000/home', {
+      const res = await fetch('/home', {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -49,7 +49,8 @@ function Home() {
         credentials: "include"
       });
       const data = await res.json();
-      console.log(data)
+      console.log(data);
+     
 
       if (res.status !== 200) {
         const error = new Error(res.error);
@@ -58,7 +59,7 @@ function Home() {
 
     }
     catch (err) {
-      console.log("error",err);
+      console.log("error is:",err);
       navigate('/register');
 
     }

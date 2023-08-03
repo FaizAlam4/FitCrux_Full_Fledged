@@ -3,7 +3,6 @@ const app=express()
 const dotenv=require('dotenv')
 const cors=require('cors')
 const path=require('path')
-// const User=require('./models/userScheme')
 app.use(express.json());
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
@@ -19,18 +18,18 @@ const port=process.env.PORT||4000;
 
 app.use(cors());
 
-require('./db/conn.js')
-//linked router files
+require('./db/conn.js');
 
+
+//serves frontend
+
+app.use(express.static(path.join(__dirname,'../client/build')));
 
 app.use(require('./router/auth'));
 
-//serves frontend
-app.use(express.static(path.join(__dirname,'./public')));
-
 app.get("*",(req,res)=>{
-res.sendFile(path.join(__dirname,'./public/index.html'))
-
+  res.sendFile(path.join(__dirname,'../client/build/index.html'))
+  
 })
 
 

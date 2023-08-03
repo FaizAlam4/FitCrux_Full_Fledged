@@ -10,7 +10,7 @@ function Heading() {
   
     return <header className="head">
         <div className="container">
-            <div className="cont"> <Link to="/FitCrux-The-React-App">Home</Link> </div>
+            <div className="cont"> <Link to="/home">Home</Link> </div>
             <div className="cont"> <Link to="/about">About</Link> </div>
             <div className="cont"> <Link to="/exercise">Exercises</Link> </div>
             <div className="cont" > <Link to="/register" >Register</Link></div>

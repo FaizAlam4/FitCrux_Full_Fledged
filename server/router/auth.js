@@ -10,9 +10,10 @@ router.use(express.json()); //it instructs the router to automatically parse any
 const User = require('../models/userScheme.js')
 
 
-router.get('/', (req, res) => {
-    res.send("hello from server")
+router.get('/home', authenticate, (req, res) => {
+    res.send(req.rootUser);
 });
+
 
 router.post('/register', (req, res) => {
     const { nm, em, pw, gender } = req.body;
@@ -91,13 +92,11 @@ router.post('/login', async (req, res) => {
 })
 
 
+
 router.get('/about', authenticate, (req, res) => {
     res.send(req.rootUser);
 })
 
-router.get('/home', authenticate, (req, res) => {
-    res.send(req.rootUser);
-})
 
 router.get('/exercise', authenticate, (req, res) => {
     res.send(req.rootUser);
@@ -107,5 +106,7 @@ router.get('/logout', (req, res) => {
     res.clearCookie('jwtoken',{path:'/'});
     res.status(200).json({message:"Logged out"});
 })
+
+
 
 module.exports = router;

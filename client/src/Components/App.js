@@ -22,8 +22,8 @@ function App() {
       
       <Routes>   
           <Route path="/about" element={<About />} />
-          <Route path="/FitCrux-The-React-App" element={<Home/>} />
-          <Route path="/" element={<Home/>} />
+          <Route path="/"  element={<Home/>} />
+          <Route path="/home" element={<Home/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/exercise" element={<Exercise/>} />
           <Route path="/login" element={<Login/>} />

@@ -44,7 +44,7 @@ if(res.status===400||!data){
 }
 else{
   window.alert(" Login Successful");
-  navigate('/');
+  navigate('/home');
 }
 }
 
