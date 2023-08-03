@@ -14,7 +14,7 @@ function About() {
 
     const myfuncAbout = async () => {
         try {
-            const res = await fetch('http://localhost:4000/about', {
+            const res = await fetch('/about', {
                 method: "GET",
                 headers: {
                     Accept: "application/json",

@@ -21,7 +21,7 @@ function Exercise() {
 
   const myfuncAbout = async () => {
     try {
-      const res = await fetch('http://localhost:4000/exercise', {
+      const res = await fetch('/exercise', {
         method: "GET",
         headers: {
           Accept: "application/json",

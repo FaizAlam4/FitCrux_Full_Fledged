@@ -11,7 +11,7 @@ function Logout() {
 
     const myfuncAbout = async () => {
         try {
-            const res = await fetch('http://localhost:4000/logout', {
+            const res = await fetch('/logout', {
                 method: "GET",
                 headers: {
                     Accept: "application/json",

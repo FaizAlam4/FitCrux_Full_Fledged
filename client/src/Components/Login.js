@@ -27,7 +27,7 @@ const Postdata2=async(e)=>{
   e.preventDefault();
   const {em,pw}=loguser;
   console.log(loguser);
-  const res=await fetch("http://localhost:4000/login",{
+  const res=await fetch("/login",{
     method:"POST",
     headers:{
     "Content-Type":"application/json"
